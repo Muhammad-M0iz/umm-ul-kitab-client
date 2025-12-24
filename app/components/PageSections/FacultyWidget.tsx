@@ -13,7 +13,7 @@ export default function FacultyWidget({ data }: { data: FacultyWidgetSection }) 
     const query = searchQuery.toLowerCase();
     const nameMatch = member.name.toLowerCase().includes(query);
     const designationMatch = member.designation?.toLowerCase().includes(query);
-    const deptMatch = member.departments.some((dept) =>
+    const deptMatch = member.departments?.some((dept) =>
       dept.name.toLowerCase().includes(query)
     );
     return nameMatch || designationMatch || deptMatch;
@@ -154,7 +154,7 @@ function FacultyCard({ member }: { member: FacultyMember }) {
               school
             </span>
             <span className="text-sm text-gray-600 font-light capitalize">
-              {member.departments.length > 0
+              {member.departments && member.departments.length > 0
                 ? member.departments.map((d) => d.name).join(", ")
                 : "Faculty Member"}
             </span>

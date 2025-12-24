@@ -1,3 +1,5 @@
+import { PageResponse } from "@/types/page";
+
 const BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "";
 
 export const revalidateSeconds = 600; // ISR window

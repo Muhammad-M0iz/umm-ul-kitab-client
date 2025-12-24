@@ -96,6 +96,7 @@ export interface FacultyMember {
   name: string;
   designation: string;
   subtitle: string | null;
+  departments?: Department[];
   photo: {
     id: number;
     documentId: string;
@@ -108,6 +109,7 @@ export interface FacultyWidgetSection {
   __component: "page-sections.faculty-widget";
   id: number;
   title: string;
+  subtitle?: string | null;
   faculty_members: FacultyMember[];
 }
 

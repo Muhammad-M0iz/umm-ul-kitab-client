@@ -10,8 +10,6 @@ import EventsWidget from "./components/EventsWidget";
 import ImportantLinksWidget from "./components/ImportantLinksWidget";
 import { cookies } from "next/headers";
 
-export const revalidate = revalidateSeconds;
-
 export default async function Home() {
   const cookieStore = await cookies();
   const locale = cookieStore.get("NEXT_LOCALE")?.value || "en";
