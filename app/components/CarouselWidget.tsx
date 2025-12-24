@@ -1,5 +1,6 @@
 import { CarouselWidget as CarouselWidgetType } from "@/types/home";
 import { mediaUrl } from "@/lib/strapi";
+import Link from "next/link";
 
 export default function CarouselWidget({ data }: { data: CarouselWidgetType }) {
   const slides = data.slides || [];
@@ -40,12 +41,12 @@ export default function CarouselWidget({ data }: { data: CarouselWidgetType }) {
                   )}
                   
                   <div className="pt-4 flex gap-4">
-                    <a className="bg-primary hover:bg-white hover:text-primary text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg flex items-center gap-2" href="#">
+                    <Link href="/admissions" className="bg-primary hover:bg-white hover:text-primary text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg flex items-center gap-2" >
                       Apply Now <span className="material-symbols-outlined">arrow_forward</span>
-                    </a>
-                    <a className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-accent px-8 py-3 rounded-full font-bold transition-all shadow-lg" href="#">
+                    </Link>
+                    <Link className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-accent px-8 py-3 rounded-full font-bold transition-all shadow-lg" href="/jamia-histroy">
                       Learn More
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

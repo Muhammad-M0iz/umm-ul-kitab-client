@@ -1,4 +1,4 @@
-import { getHomePage, revalidateSeconds } from "@/lib/strapi";
+import { getHomePage } from "@/lib/strapi";
 import type { HomePageData } from "@/types/home";
 import CarouselWidget from "./components/CarouselWidget";
 import MessageWidget from "./components/MessageWidget";
