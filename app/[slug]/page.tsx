@@ -14,6 +14,7 @@ import TestimonialsWidget from "@/app/components/PageSections/TestimonialsWidget
 import PhotoAlbumWidget from "@/app/components/PageSections/PhotoAlbumWidget";
 import VideoGalleryWidget from "@/app/components/PageSections/VideoGalleryWidget";
 import NestedPagesWidget from "@/app/components/PageSections/NestedPagesWidget";
+import TableWidget from "@/app/components/PageSections/TableWidget";
 import FormSection from "@/app/components/PageSections/FormSection";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
       title: `${page.title} - Jamia Ummul Kitab`,
     };
-  } catch (error) {
+  } catch {
     return {};
   }
 }
@@ -80,7 +81,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const nestedPages = currentNavPage?.children || [];
 
   const mainContentSections = page.content_sections.filter((section: PageSection) =>
-    ["page-sections.featured-image", "page-sections.rich-text-block", "home-page-widgets.news-feed-widget", "home-page-widgets.events-widget", "page-sections.faculty-widget", "page-sections.downloads", "page-sections.testimonials-widget", "page-sections.photo-album-widget", "page-sections.video"].includes(section.__component)
+    ["page-sections.featured-image", "page-sections.rich-text-block", "home-page-widgets.news-feed-widget", "home-page-widgets.events-widget", "page-sections.faculty-widget", "page-sections.downloads", "page-sections.testimonials-widget", "page-sections.photo-album-widget", "page-sections.video", "page.table"].includes(section.__component)
   );
 
   const sidebarSections = page.content_sections.filter((section: PageSection) =>
@@ -158,6 +159,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                     return <PhotoAlbumWidget key={section.id} data={section} />;
                   case "page-sections.video":
                     return <VideoGalleryWidget key={section.id} data={section} />;
+                  case "page.table":
+                    return <TableWidget key={section.id} data={section} />;
                   default:
                     return null;
                 }

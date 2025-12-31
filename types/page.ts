@@ -213,6 +213,21 @@ export interface VideoSection {
   videos: VideoItem[];
 }
 
+export interface TableSection {
+  __component: "page.table";
+  id: number;
+  title: string | null;
+  Table: {
+    id: number;
+    columns: {
+      id: number;
+      label: string;
+      type: string;
+    }[];
+    rows: string[][];
+  };
+}
+
 export type PageSection =
   | FeaturedImageSection
   | RichTextBlockSection
@@ -225,7 +240,8 @@ export type PageSection =
   | TestimonialsWidgetSection
   | ImportantLinksWidgetSection
   | PhotoAlbumWidgetSection
-  | VideoSection;
+  | VideoSection
+  | TableSection;
 
 export interface FormFieldDefinition {
   id: string;
